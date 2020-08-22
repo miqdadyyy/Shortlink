@@ -1,0 +1,7 @@
+org: labpemrounej
+app: shortenlink
+component: express
+name: express-starter
+
+inputs:
+  src: ./
