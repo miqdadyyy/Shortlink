@@ -6,9 +6,9 @@ const slugify = require('slugify');
 slugify.extend({'.': '-'});
 const {ObjectId} = require('mongodb');
 // Set forbidden long or short url
-const forbiddenShort = ['assets'];
+const forbiddenShort = ['assets', 'api'];
 const forbiddenLong = [process.env.APP_URL];
-
+const path = require('path');
 
 // function to generate random String
 function randomString(length) {
@@ -172,10 +172,6 @@ class LinkAPI {
       }, 'links');
   
       if (link) {
-        if(link.is_secret){
-        
-        }
-        
         MongoAPI.updateOne({
           short_url
         }, {
@@ -184,13 +180,16 @@ class LinkAPI {
     
         res.redirect(link.long_url);
       } else {
-        res.statusCode = 404;
-        return res.send({
-          statusCode: 404,
-          message: 'Link not found! ❌'
-        });
+        res.sendFile(path.resolve(__dirname, '../public/404.html'));
+        // return new Error('Not Found');
+        // res.statusCode = 404;
+        // return res.send({
+        //   statusCode: 404,
+        //   message: 'Link not found! ❌'
+        // });
       }
     } catch (e) {
+      console.log(e);
       return new Error(e.message);
     }
   }
