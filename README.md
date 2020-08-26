@@ -72,9 +72,12 @@ Getting all link with each page show 5 link at page 2
 
 3. Store Link randomly generate short_url (8 characters)
 > POST https://example.com/api/v1/link  
+> ```
 > {
 >  "long_url": "https://www.github.com/miqdadyyy",
+>  "is_custom": false
 > }
+> ```
 
 4. Store Link with custom short_url
 > POST https://example.com/api/v1/link  
