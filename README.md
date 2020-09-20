@@ -15,6 +15,7 @@ You need mongodb instance to run this application, to create free mongodb click 
 
 You can install this application to your host with simple docker command. 
 Use `docker-compose` to make this easier.
+- Copy `docker-compose.example.yml` to `docker-compose.yml`
 - Edit `docker-compose.yml` file and fill the environment
 - Run `docker-compose up -d`
 - Done, your application running on port 3000 😁
@@ -32,6 +33,10 @@ To install this application manually just run :
 - Done, your application running on port 3000 😁
 
 ## API Endpoints
+
+> To request API you should include api key on header 
+>
+> `curl -H "key: your-secret-api-key"` https://yourdomain.com/path-below
 
 |No |Method |Name             |Path              |Note                                               |
 |---|-------|-----------------|------------------|---------------------------------------------------|

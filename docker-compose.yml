@@ -11,5 +11,6 @@ services:
     environment:
       NODE_ENV: production
       APP_URL: http://yoururl.com
+      API_KEY: 'your-secrey-api-key'
       MONGODB_URI: mongodb://localhost:27017
       MONGODB_DB: shortenlink
