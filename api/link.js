@@ -64,7 +64,7 @@ class LinkAPI {
       }
       
       // Getting result
-      const result = await (await MongoAPI.connectMongo())
+      const result = await MongoAPI.getClient()
         .collection('links')
         .find(query)
         .sort(sort)
@@ -73,7 +73,7 @@ class LinkAPI {
         .toArray();
   
       // Geting total items
-      const totalItems = await (await MongoAPI.connectMongo())
+      const totalItems = await MongoAPI.getClient()
         .collection('links')
         .find(query)
         .count();
@@ -92,6 +92,7 @@ class LinkAPI {
         }
       });
     } catch (e) {
+      console.log(e);
       return new Error(e.message);
     }
   }
